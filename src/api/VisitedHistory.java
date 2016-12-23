@@ -91,4 +91,32 @@ public class VisitedHistory extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+
+	public void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// allow access only if session exists
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			response.setStatus(403);
+			return;
+		}
+		try {
+			JSONObject input = RpcParser.parseInput(request);
+			if (input.has("visited")) {
+				String userId = (String) session.getAttribute("user");
+				JSONArray array = (JSONArray) input.get("visited");
+				List<String> visitedRestaurants = new ArrayList<>();
+				for (int i = 0; i < array.length(); i++) {
+					String businessId = (String) array.get(i);
+					visitedRestaurants.add(businessId);
+				}
+				connection.unsetVisitedRestaurants(userId, visitedRestaurants);
+				RpcParser.writeOutput(response, new JSONObject().put("status", "OK"));
+			} else {
+				RpcParser.writeOutput(response, new JSONObject().put("status", "InvalidParameter"));
+			}
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+	}
 }
