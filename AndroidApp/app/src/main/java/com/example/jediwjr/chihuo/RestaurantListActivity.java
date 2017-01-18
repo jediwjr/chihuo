@@ -1,5 +1,6 @@
 package com.example.jediwjr.chihuo;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,12 +32,19 @@ public class RestaurantListActivity extends AppCompatActivity implements Restaur
             }
         }.execute();
 
-        if (findViewById(R.id.fragment_container) != null) {
-            listFragment = new RestaurantListFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_list_container, listFragment).commit();
 
+        if (findViewById(R.id.fragment_container) != null) {
+            Intent intent = getIntent();
+            if (intent.getExtras() != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_list_container, new BackendListFragment()).commit();
+            } else {
+                listFragment =  new RestaurantListFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.fragment_list_container, listFragment).commit();
+            }
         }
+
 
     }
 

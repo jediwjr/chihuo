@@ -5,6 +5,7 @@ package com.example.jediwjr.chihuo;
  */
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -27,7 +28,14 @@ import java.util.List;
 public class DataService {
 
     private LruCache<String, Bitmap> bitmapCache;
+    private Context mContext;
+    /**
+     * Constructor.
+     */
+    public DataService(Context context) {
 
+        mContext = context;
+    }
     /**
      * Constructor.
      */
@@ -102,7 +110,10 @@ public class DataService {
      * Download an Image from the given URL, then decodes and returns a Bitmap object.
      */
     public Bitmap getBitmapFromURL(String imageUrl) {
-        Bitmap bitmap = bitmapCache.get(imageUrl);
+        Bitmap bitmap = null;
+        if (bitmapCache != null) {
+            bitmap = bitmapCache.get(imageUrl);
+        }
         if (bitmap == null) {
             try {
                 URL url = new URL(imageUrl);
@@ -111,7 +122,9 @@ public class DataService {
                 connection.connect();
                 InputStream input = connection.getInputStream();
                 bitmap = BitmapFactory.decodeStream(input);
-                bitmapCache.put(imageUrl, bitmap);
+                if (bitmapCache != null) {
+                    bitmapCache.put(imageUrl, bitmap);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
                 Log.e("Error: ", e.getMessage().toString());

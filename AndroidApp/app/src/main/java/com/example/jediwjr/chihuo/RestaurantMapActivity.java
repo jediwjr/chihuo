@@ -51,7 +51,6 @@ public class RestaurantMapActivity extends FragmentActivity implements OnMapRead
             Log.e("toMark", toMark.toString());
             map.addMarker(new MarkerOptions().position(toMark).title("Marker"));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(toMark, 5));
-//            map.moveCamera(CameraUpdateFactory.newLatLng(toMark));
             map.animateCamera(CameraUpdateFactory.zoomTo(number), 2000, null);
         }
     }
