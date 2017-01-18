@@ -24,7 +24,6 @@ import java.util.List;
  */
 public class RestaurantListFragment extends Fragment {
 
-
     OnItemSelectListener mCallback;
     private ListView listView;
     private DataService dataService;
@@ -95,7 +94,6 @@ public class RestaurantListFragment extends Fragment {
         private DataService dataService;
         private Clock clock;
 
-
         public GetRestaurantsNearbyAsyncTask(Fragment fragment, DataService dataService) {
             this.fragment = fragment;
             this.dataService = dataService;
@@ -112,7 +110,6 @@ public class RestaurantListFragment extends Fragment {
             Log.e("Latency", Long.toString(clock.getCurrentInterval()));
             return list;
         }
-
 
         @Override
         protected void onPostExecute(List<Restaurant> restaurants) {

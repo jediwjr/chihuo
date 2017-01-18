@@ -70,7 +70,7 @@ public class BackendListFragment extends Fragment {
     }
 
     public void updateRestaurant(String user_id) {
-        String url2 = "http://laiproject.mooo.com/chihuo/recommendation?user_id=" + user_id;
+        String url2 = "http://where2eat.mooo.com/Dashi/recommendation?user_id=" + user_id;
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest2 = new StringRequest(Request.Method.GET, url2, new Response.Listener<String>() {
             @Override

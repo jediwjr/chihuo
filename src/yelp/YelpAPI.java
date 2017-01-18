@@ -14,10 +14,10 @@ public class YelpAPI {
 	private static final String DEFAULT_TERM = "dinner";
 	private static final int SEARCH_LIMIT = 20;
 	private static final String SEARCH_PATH = "/v2/search";
-	private static final String CONSUMER_KEY = "xxx";
-	private static final String CONSUMER_SECRET = "xxx";
-	private static final String TOKEN = "xxx-fYHK";
-	private static final String TOKEN_SECRET = "xxx";
+	private static final String CONSUMER_KEY = "gACBp7EozwnxFp2Bhqz1Ug";
+	private static final String CONSUMER_SECRET = "9h6NDzzQow9BaTqBlly_uOiJSOw";
+	private static final String TOKEN = "gB57djLEBmrpnSK7cJ_zfqVKK8UMUiFy";
+	private static final String TOKEN_SECRET = "Y1p5z4qNh1ORSzvuvzWXKuVAIJ4";
 
 	OAuthService service;
 	Token accessToken;
