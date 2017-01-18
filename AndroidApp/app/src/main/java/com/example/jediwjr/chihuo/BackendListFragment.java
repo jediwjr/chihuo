@@ -37,13 +37,12 @@ import java.util.Map;
 public class BackendListFragment extends Fragment {
 
 
-    public BackendListFragment() {
-        // Required empty public constructor
-    }
-
     private Fragment mfragment;
     private DataService dataService;
     private ListView mListView;
+    public BackendListFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,7 +85,7 @@ public class BackendListFragment extends Fragment {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Cookie",  Config.cookies);
+                headers.put("Cookie", Config.cookies);
                 return headers;
             }
         };
@@ -109,7 +108,7 @@ public class BackendListFragment extends Fragment {
         protected List<Restaurant> doInBackground(Void... params) {
             try {
                 JSONArray reader = new JSONArray(response);
-                for(int i = 0; i < reader.length(); i++){
+                for (int i = 0; i < reader.length(); i++) {
                     JSONObject item = reader.getJSONObject(i);
                     Restaurant restaurant = new Restaurant();
                     restaurant.setName(item.getString("name"));
@@ -121,13 +120,13 @@ public class BackendListFragment extends Fragment {
 
                     JSONArray category = item.getJSONArray("categories");
                     List<String> cat = new ArrayList<String>();
-                    for(int j = 0; j < category.length(); j++){
+                    for (int j = 0; j < category.length(); j++) {
                         cat.add(category.get(j).toString());
                     }
                     restaurant.setCategories(cat);
                     restaurantList.add(restaurant);
                 }
-            }catch (JSONException ex){
+            } catch (JSONException ex) {
                 ex.printStackTrace();
             }
             return restaurantList;

@@ -39,7 +39,7 @@ public class RestaurantListActivity extends AppCompatActivity implements Restaur
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.fragment_list_container, new BackendListFragment()).commit();
             } else {
-                listFragment =  new RestaurantListFragment();
+                listFragment = new RestaurantListFragment();
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.fragment_list_container, listFragment).commit();
             }

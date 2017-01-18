@@ -1,8 +1,8 @@
 package com.example.jediwjr.chihuo;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -109,15 +109,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private String md5(String input){
+    private String md5(String input) {
         String result = "";
-        try{
+        try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();
             messageDigest.update(input.getBytes(Charset.forName("UTF8")));
             byte[] resultByte = messageDigest.digest();
             result = new String(Hex.encodeHex(resultByte));
-        }catch(Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return result;

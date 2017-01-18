@@ -22,7 +22,8 @@ public class Restaurant {
     private List<String> categories;
     private double stars;
 
-    public Restaurant(){}
+    public Restaurant() {
+    }
 
     /**
      * Constructor.
@@ -44,28 +45,56 @@ public class Restaurant {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getAddress() {
         return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getType() {
         return type;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public double getLat() {
         return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
     public double getLng() {
         return lng;
     }
 
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
+
     public Bitmap getThumbnail() {
         return thumbnail;
     }
 
+    public void setThumbnail(Bitmap thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
     public Bitmap getRating() {
         return rating;
+    }
+
+    public void setRating(Bitmap rating) {
+        this.rating = rating;
     }
 
     public List<String> getCategories() {
@@ -83,14 +112,6 @@ public class Restaurant {
     public void setStars(double stars) {
         this.stars = stars;
     }
-
-    public void setName(String name) {this.name = name;}
-    public void setAddress(String address) {  this.address = address; }
-    public void setType(String type) { this.type = type; }
-    public void setLat(double lat) { this.lat = lat; }
-    public void setLng(double lng) { this.lng = lng; }
-    public void setThumbnail(Bitmap thumbnail) { this.thumbnail = thumbnail; }
-    public void setRating(Bitmap rating) { this.rating = rating; }
 
 
 }

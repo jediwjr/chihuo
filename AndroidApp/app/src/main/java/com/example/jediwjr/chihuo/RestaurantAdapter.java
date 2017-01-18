@@ -58,15 +58,14 @@ public class RestaurantAdapter extends BaseAdapter {
                 R.id.restaurant_thumbnail);
         ImageView restaurantRating = (ImageView) convertView.findViewById(
                 R.id.restaurant_rating);
-        RatingBar ratingBar = (RatingBar)convertView.findViewById(R.id.restaurant_rating_bar);
-
+        RatingBar ratingBar = (RatingBar) convertView.findViewById(R.id.restaurant_rating_bar);
 
 
         Restaurant r = restaurantData.get(position);
         if (r.getRating() == null) {
             restaurantRating.setVisibility(View.GONE);
             ratingBar.setVisibility(View.VISIBLE);
-            ratingBar.setRating((float)r.getStars());
+            ratingBar.setRating((float) r.getStars());
         }
         restaurantName.setText(r.getName());
         restaurantAddress.setText(r.getAddress());

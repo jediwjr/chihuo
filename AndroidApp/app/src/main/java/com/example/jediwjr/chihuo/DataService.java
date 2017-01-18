@@ -29,6 +29,7 @@ public class DataService {
 
     private LruCache<String, Bitmap> bitmapCache;
     private Context mContext;
+
     /**
      * Constructor.
      */
@@ -36,6 +37,7 @@ public class DataService {
 
         mContext = context;
     }
+
     /**
      * Constructor.
      */
