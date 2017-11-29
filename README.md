@@ -1,6 +1,6 @@
 # chihuo
 Help you find the best restaurant around <br />
-http://where2eat.mooo.com/<br />
+http://where2eat.jumpingcrab.com/<br />
  test username: 1111<br />
  test password: 2222<br />
 
